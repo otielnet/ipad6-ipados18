@@ -42,14 +42,9 @@ gmake -j10 DEV_BUILD=1
 
 ## get turdus files
 
-download `https://sep.lol/files/releases/v1.0.4/4b4db1d626627b649d64ab2eb907d773fe8621b04dcf0d0d61d66669e0549ec618e4ae0317c883896c43f2d8ccde1929/turdus_m3rula.tar.zst`
+download `https://sep.lol/files/releases/v1.0.4/046aaa68a518c270f3050363c4ce6e0eab0129797a8a0b711f1e9f526266970c47eb4b482298d620e9b8d6546f764fd3/sep_racer`
 
-extract turdus' sep module that will be used later
-```
-tar xf turdus_m3rula.tar.zst
-lipo -thin arm64 -output turdus_arm64 bin/turdusra1n
-dd if=turdus_arm64 of=sep.macho skip=762536 count=763208 bs=1
-```
+This is the same file as the module embedded within turdus 1.0.4, save it as it will be used later.
 
 ## Decrypt Root FS and System Cryptex
 
@@ -335,7 +330,7 @@ sleep 1;
 palera1n -fp -k ${PROJECTS}/PongoOS-Turdus/build/Pongo.bin
 sleep 1;
 printf 'fuse lock\n/send %s\nmodload\n/send %s\nsep payload\nsep sep_flag 0x12\nsep pwn\n/send %s\nmodload\npalera1n_flags 0x1\n/send %s\nramdisk\n/send %s\noverlay\nxargs %s\nbootx\n' \
-	"/path/to/sep.macho" \
+	"/path/to/sep_racer" \
 	"/path/to/sep-firmware.im4p" \
 	"${PROJECTS}/PongoOS-KPF/build/checkra1n-kpf-pongo" \
 	"${PROJECTS}/jbinit/src/ramdisk.dmg" \
