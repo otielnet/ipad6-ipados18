@@ -281,7 +281,7 @@ ssh -o 'ProxyCommand=inetcat 44' -o 'UserKnownHostsFile /dev/null' -o 'StrictHos
 ### Fixing up /var
 
 ```
-mount_apfs -o /dev/disk1s8 /cores/fs/fake
+mount_apfs /dev/disk1s8 /cores/fs/fake
 rm -rf /private/var/staged_system_apps
 mv /cores/fs/fake/private/var/staged_system_apps /private/var
 nvram p1-fakefs-rootdev=disk1s8
@@ -291,7 +291,8 @@ snaputil -c orig-fs /cores/fs/fake
 ## Kill iOS 17 while keeping it recoverable
 
 ```
-mv /private/preboot/<boot-manifest-hash>/System/Library/Caches/com.apple.kernelcaches/kernelcache{,.bak}
+cd /private/preboot/<boot-manifest-hash>/System/Library/Caches/com.apple.kernelcaches
+mv kernelcache kernelcache.bak
 ```
 
 ## Build the boot ramdisks
@@ -311,22 +312,26 @@ gmake -j10 DEV_BUILD=1
 
 ## Now boot iOS 18!
 
-Pongo.bin should be from Turdus' pongoOS repo and checkra1n-kpf-pongo should be from palera1n's PongoOS repo
+Pongo.bin should be from Turdus' pongoOS repo and checkra1n-kpf-pongo should be from palera1n's PongoOS repo.
+The following commands assume one used the `projects` folder in this repo.
 
 ```
+PROJECTS="/path/to/ipad6-ipados18/projects"
+
 palera1n -D
-./openra1n /path/to/PongoOS-Turdus/build/Pongo.bin
-sleep 1
+${PROJECTS}/openra1n/openra1n ${PROJECTS}/PongoOS-Turdus/build/Pongo.bin
+sleep 2;
 irecovery -f LLB.img4
-sleep 1
-palera1n -fp -k /path/to/PongoOS-Turdus/build/Pongo.bin
+sleep 1;
+palera1n -fp -k ${PROJECTS}/PongoOS-Turdus/build/Pongo.bin
+sleep 1;
 printf 'fuse lock\n/send %s\nmodload\n/send %s\nsep payload\nsep sep_flag 0x12\nsep pwn\n/send %s\nmodload\npalera1n_flags 0x1\n/send %s\nramdisk\n/send %s\noverlay\nxargs %s\nbootx\n' \
-	"/path/to/turdus/sep.macho" \
-        "/path/to/sep-firmware.im4p" \
-        "/path/to/checkra1n-kpf-pongo" \
-        "/path/to/ramdisk.dmg" \
-        "/path/to/binpack.dmg" \
-        'serial=3' | pongoterm
+	"/path/to/sep.macho" \
+	"/path/to/sep-firmware.im4p" \
+	"${PROJECTS}/PongoOS-KPF/build/checkra1n-kpf-pongo" \
+	"${PROJECTS}/jbinit/src/ramdisk.dmg" \
+	"${PROJECTS}/jbinit/src/binpack.dmg" \
+	'serial=3' | pongoterm
 ```
 
 ## Credits
