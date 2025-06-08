@@ -228,7 +228,8 @@ Cellular model: DeviceTree.j72bap.im4p
 Unpack and patch device tree with the included `device-tree.diff`
 
 ```
-devicetree-parse /path/to/iPad_64bit_TouchID_Restore/Firmware/all_flash/DeviceTree.j71bap.im4p > DeviceTree_j71bap.jsonc
+img4 -i /path/to/iPad_64bit_TouchID_Restore/Firmware/all_flash/DeviceTree.j71bap.im4p -o DeviceTree
+devicetree-parse DeviceTree > DeviceTree_j71bap.jsonc
 patch DeviceTree_j71bap.jsonc device-tree.diff
 sed -i -e 's|figaro|rudder|' DeviceTree_j71bap.jsonc
 ```
