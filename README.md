@@ -11,6 +11,15 @@ Obtain openra1n special version `ipad6` branch: https://github.com/asdfugil/open
 
 `img4` is from img4lib (submodule: `projects/img4lib`)
 
+## Current Limitations
+
+- Tethered (will always be the case)
+- Lightning AV and VGA Adapters do not work
+- Wastes storage because I am too lazy to patch SSV checks in iBoot
+- System Camera app cannot take videos
+- "Erase All Contents and Settings" will cause a bootloop
+- Baseband, and by extension Cellular model activation does not work (so setup the cellular model before starting the process)
+
 ## Build palera1n KPF
 
 palera1n KPF: https://github.com/palera1n/PongoOS `ios18.4` branch (with cryptex patches)
@@ -334,12 +343,12 @@ printf 'fuse lock\n/send %s\nmodload\n/send %s\nsep payload\nsep sep_flag 0x12\n
 	'serial=3' | pongoterm
 ```
 
-## Current Limitations
+## First Boot
 
-- Tethered (will always be the case)
-- Lightning AV and VGA Adapters do not work
-- Wastes storage because I am too lazy to patch SSV checks in iBoot
-- System Camera app cannot take videos
+For Wi-Fi models, the iPad can be setup from scratch if iPadOS 17's setup is never completed,
+cellular models will need to be already setup due to baseband issues. Due to the wallpaper
+downgrade the iPad will use iPadOS 17 wallpaper by default. iPadOS 18 wallpaper is available
+online in Settings after the device has been set up.
 
 ## Credits
 
