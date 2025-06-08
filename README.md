@@ -55,9 +55,9 @@ submodule: `projects/aeota`
 
 ```
 # Decrypt the bigger rootfs .dmg.aea file
-aea decrypt -i <XXX-XXXXXXX-XXX.dmg.aea> -o root.dmg -k "base64:$(python3 /path/to/aeota/get_key.py <XXX-XXXXXXX-XXX.dmg.aea>)"
+aea decrypt -i <XXX-XXXXXXX-XXX.dmg.aea> -o root.dmg -key-value "base64:$(python3 /path/to/aeota/get_key.py <XXX-XXXXXXX-XXX.dmg.aea>)"
 # Decrypt the smaller system cryptex .dmg.aea file
-aea decrypt -i <XXX-XXXXXXX-XXX.dmg.aea> -o os.dmg -k "base64:$(python3 /path/to/aeota/get_key.py <XXX-XXXXXXX-XXX.dmg.aea>)"
+aea decrypt -i <XXX-XXXXXXX-XXX.dmg.aea> -o os.dmg -key-value "base64:$(python3 /path/to/aeota/get_key.py <XXX-XXXXXXX-XXX.dmg.aea>)"
 ```
 
 ## SSH Ramdisk
