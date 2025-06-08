@@ -1,0 +1,30 @@
+[submodule "projects/SSHRD_Script"]
+	path = projects/SSHRD_Script
+	url = git@github.com:verygenericname/SSHRD_Script.git
+[submodule "projects/ibootpatch2"]
+	path = projects/ibootpatch2
+	url = git@github.com:asdfugil/ibootpatch2.git
+[submodule "projects/iBoot64Patcher"]
+	path = projects/iBoot64Patcher
+	url = git@github.com:Cryptiiiic/iBoot64Patcher.git
+[submodule "projects/devicetree-parse"]
+	path = projects/devicetree-parse
+	url = git@github.com:khanhduytran0/devicetree-parse.git
+[submodule "projects/jbinit"]
+	path = projects/jbinit
+	url = git@github.com:palera1n/jbinit.git
+[submodule "projects/PongoOS"]
+	path = projects/PongoOS-KPF
+	url = git@github.com:palera1n/PongoOS.git
+[submodule "projects/openra1n"]
+	path = projects/openra1n
+	url = git@github.com:asdfugil/openra1n.git
+[submodule "projects/PongoOS-Turdus"]
+	path = projects/PongoOS-Turdus
+	url = git@github.com:turdus-m3rula/PongoOS.git
+[submodule "projects/aeota"]
+	path = projects/aeota
+	url = git@github.com:dhinakg/aeota.git
+[submodule "projects/img4lib"]
+	path = projects/img4lib
+	url = git@github.com:xerub/img4lib.git
