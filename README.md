@@ -334,6 +334,13 @@ printf 'fuse lock\n/send %s\nmodload\n/send %s\nsep payload\nsep sep_flag 0x12\n
 	'serial=3' | pongoterm
 ```
 
+## Current Limitations
+
+- Tethered (will always be the case)
+- Lightning AV and VGA Adapters do not work
+- Wastes storage because I am too lazy to patch SSV checks in iBoot
+- System Camera app cannot take videos
+
 ## Credits
 
 - [Turdus M3rula](https://github.com/turdus-m3rula) - SEP firmware loader
