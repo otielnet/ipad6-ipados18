@@ -10,6 +10,8 @@ For some dependencies check the `projects` folder in this repo for submodules wh
 Obtain openra1n special version `ipad6` branch: https://github.com/asdfugil/openra1n (submodule: `projects/openra1n`)
 
 `img4` is from img4lib (submodule: `projects/img4lib`)
+palera1n: https://github.com/palera1n/palera1n/releases
+pongoterm (pongoOS terminal): https://github.com/palera1n/PongoOS/blob/iOS15/scripts/pongoterm.c
 
 ## Current Limitations
 
